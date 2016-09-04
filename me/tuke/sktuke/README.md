@@ -15,7 +15,7 @@ Where:<br>
 <p>Before check for latest update, you need to know some things:
 	<ul>
 		<li> When the plugin will check for the latest update, the class will search for first hyperlink <code>[Plugin's name].jar</code> and then
-get the direct download link from it. But, if you use a different message as <code>Download here</code>, <code>Click here to down</code>or something, you will have to use the second constructor.<p>
+get the direct download link from it. But, if you use a different message as <code>Download here</code>, <code>Click here to download</code>or something, you will have to use the second constructor.<p>
 <code>SkUnityUpdater updater = new SkUnityUpdater(instance, file, threadID, "Download here");</code></p>
 </li>
 <li>If you have a external link, you can use the method <code>useDirectURL(String)</code>
