@@ -1,5 +1,5 @@
 This Auto Updater uses a thread from SkUnity Forums to get and download the latest version of your addon.<br>
-It isn't official from SkUnity and neither has any connection of them.
+It isn't official from SkUnity and neither has any connection with them.
 
 #How to use
 First, place the class in your project.
