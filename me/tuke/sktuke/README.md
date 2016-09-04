@@ -22,7 +22,7 @@ get the direct download link from it. But, if you use a different message as <co
 <p><code>updater.useDirectURL("http://yourSiteHere.com/download/latest");</code></p>
 </li>
 </ul>
-#Update Checker
+#Update Check
 To check if there is a new update, you have to use this:
 <p><code>updater.checkForUpdate();</code></p>
 But, take a note: It may take a <b>bit longer to load your plugin</b> if you use in <code>onEnable()</code>. So, I recommend to you schedule a task later then check it out.<br>
