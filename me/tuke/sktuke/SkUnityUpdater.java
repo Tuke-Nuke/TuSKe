@@ -26,7 +26,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 	 * to the latest one.
 	 * <p>
 	 * If you want to use it in your plugin or have a suggestion for this, please contact me.
-	 * @author Tuke_Nuke
+	 * @author Tuke_Nuke - {@link github.com/Tuke-Nuke}
 	 */
 
 public class SkUnityUpdater {
