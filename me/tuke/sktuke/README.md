@@ -40,9 +40,9 @@ It will download the latest version and will return true if it was successful. T
 <pre>
 @Override
 public void onDisable() {
-	if (update.hasDownloadReady(true)){
+	if (updater.hasDownloadReady(true)){
 		HandlerList.unregisterAll(this); //I recommend it to prevent some problems.
-		update.updatePlugin(true);
+		updater.updatePlugin(true);
 	}
 }
 </pre>
