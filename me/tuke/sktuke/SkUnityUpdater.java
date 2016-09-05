@@ -123,7 +123,7 @@ public class SkUnityUpdater {
 			}
 			reader.close();
 		} catch (MalformedURLException e) {
-			PLUGIN.getLogger().severe("The updater couldn't get the link of the latest version\n" + e.getMessage());
+			PLUGIN.getLogger().severe("The updater couldn't get the link of the latest version.\n" + e.getMessage());
 		} catch (IOException e) {
 			PLUGIN.getLogger().warning("An unexpected error occurred when trying to check for latest update. Maybe SkUnity is down?");
 		}
@@ -144,8 +144,9 @@ public class SkUnityUpdater {
 		try {
 			if (jarTo.exists())
 				jarTo.delete();
+			jarOld.renameTo(new File(jarOld.getPath().replace(".jar", "-backup.jar")));
+			jarOld = new File("plugins" + File.separator, PLUGIN_JAR.getName().replaceAll(".jar", "-backup.jar"));
 			FileUtils.copyFileToDirectory(jarOld, new File(PLUGIN.getDataFolder() + File.separator));
-			new File(jarTo.getPath().replace("-backup.jar", ".jar")).renameTo(jarTo);
 		} catch (IOException e) {
 			PLUGIN.getLogger().warning("An unexpected error occurred when trying to make a backup of current version.\n" + e.getMessage());
 		}
@@ -160,16 +161,16 @@ public class SkUnityUpdater {
 	public void updatePlugin(boolean backupCurrentVersion){
 		if (hasDownloadReady(true)){
 			File jarNew = new File(PLUGIN.getDataFolder(), PLUGIN.getName() + ".jar");
-			File jarOld = new File("PLUGINs" + File.separator, PLUGIN_JAR.getName());
+			File jarOld = new File("plugins" + File.separator, PLUGIN_JAR.getName());
 			try {
 				if (backupCurrentVersion)
 					backupCurrent();
 				jarOld.delete();
-				FileUtils.copyFileToDirectory(jarNew, new File("PLUGINs" + File.separator));
+				FileUtils.copyFileToDirectory(jarNew, new File("plugins" + File.separator));
 				jarNew.delete();
 
 			} catch (IOException e) {
-				PLUGIN.getLogger().severe("An unexpected error occurred when trying to update the PLUGIN.\n" + e.getMessage());
+				PLUGIN.getLogger().severe("An unexpected error occurred when trying to update the plugin.\n" + e.getMessage());
 			}
 		}
 	}
@@ -227,7 +228,7 @@ public class SkUnityUpdater {
 			FileUtils.copyInputStreamToFile(download.getInputStream(), new File(PLUGIN.getDataFolder(), PLUGIN.getName() + ".jar"));
 			return true;
 		} catch (Exception e) {
-			PLUGIN.getLogger().info("An unexpected error occurred when trying to download the latest version");
+			PLUGIN.getLogger().info("An unexpected error occurred when trying to download the latest version.\n" + e.getMessage());
 		}
 		return false;
 	}
